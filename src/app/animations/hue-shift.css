@@ -1,0 +1,24 @@
+@keyframes hueShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hue-shift-bg {
+    background: linear-gradient(
+        45deg,
+        rgba(0, 24, 72, 0.9) 0%,
+        rgba(0, 48, 120, 0.9) 25%,
+        rgba(0, 72, 168, 0.9) 50%,
+        rgba(0, 48, 120, 0.9) 75%,
+        rgba(0, 24, 72, 0.9) 100%
+    );
+    background-size: 400% 400%;
+    animation: hueShift 15s ease infinite;
+}

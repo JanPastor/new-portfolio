@@ -3,19 +3,162 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --text-primary: grey;
+  --text-secondary: white;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  font-family: 'Quicksand', sans-serif;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #87CEFA, #1E3A5F);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2778a3;
+}
+
+/* Ocean Background */
+.ocean-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: #1E3A5F;
+  pointer-events: none;
+}
+
+/* Ripple Effect */
+.water-ripple {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  opacity: 0.3;
+  z-index: -1;
+  background: radial-gradient(circle at center, transparent 0%, rgba(255,255,255,0.1) 100%);
+  animation: ripple 15s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Wave Animation */
+.wave-wrapper {
+  position: relative;
+  height: 150px;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.wave {
+  position: absolute;
+  width: 400%;
+  height: 100%;
+  left: -100%;
+  background-repeat: repeat-x;
+  background-position: 0 bottom;
+  background-size: 25% 100%;
+  transform-origin: center bottom;
+  pointer-events: none;
+}
+
+.wave::before,
+.wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.wave::before {
+  left: 0;
+  background: linear-gradient(to right, 
+      rgba(135, 206, 250, 1) 0%,
+      rgba(135, 206, 250, 0) 100%
+  );
+}
+
+.wave::after {
+  right: 0;
+  background: linear-gradient(to left, 
+      rgba(135, 206, 250, 1) 0%,
+      rgba(135, 206, 250, 0) 100%
+  );
+}
+
+.wave-1 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M-200 56.9C0 56.9 0 0 200 0c200 0 200 56.9 400 56.9c200 0 200-56.9 400-56.9v88.7H-200V56.9z' fill='%23003462' fill-opacity='.3'/%3E%3C/svg%3E");
+  animation: wave 18s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+  z-index: 3;
+}
+
+.wave-2 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M-200 56.9C0 56.9 0 0 200 0c200 0 200 56.9 400 56.9c200 0 200-56.9 400-56.9v88.7H-200V56.9z' fill='%23003462' fill-opacity='.5'/%3E%3C/svg%3E");
+  animation: wave 15s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+  z-index: 2;
+}
+
+@keyframes wave {
+  0% {
+      transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+      transform: translateX(-25%) translateZ(0) scaleY(0.95);
+  }
+  100% {
+      transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
+}
+
+/* Wave animation for the hand emoji */
+@keyframes wave-hand {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.wave-hand {
+  animation: wave-hand 2.5s infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
 }

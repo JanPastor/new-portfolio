@@ -1,0 +1,64 @@
+/* bubbles.css */
+.bubbles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -20px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.4) 60%,
+        rgba(255, 255, 255, 0.1)
+    );
+    animation: float 8s ease-in infinite;
+    opacity: 0;
+}
+
+@keyframes float {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.8);
+    }
+    20% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) scale(1.2);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .bubble {
+        transform-origin: center;
+        scale: 0.8;
+    }
+}
+
+@media (max-width: 480px) {
+    .bubble {
+        scale: 0.6;
+    }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .bubble {
+        animation: none;
+        opacity: 0;
+    }
+}
