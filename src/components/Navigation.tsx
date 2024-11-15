@@ -3,22 +3,23 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { getAssetPath } from '@/utils/assetPath';
 
 export default function Navigation() {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Home', icon: '/images/nav_bar_icons/home.svg' },
-    { href: '/experience', label: 'Experience', icon: '/images/nav_bar_icons/experience.svg' },
-    { href: '/projects', label: 'Projects', icon: '/images/nav_bar_icons/projects.svg' },
-    { href: '/gallery', label: 'Gallery', icon: '/images/nav_bar_icons/gallery.svg' },
+    { href: '/', label: 'Home', icon: getAssetPath('/images/nav_bar_icons/home.svg') },
+    { href: '/experience', label: 'Experience', icon: getAssetPath('/images/nav_bar_icons/experience.svg') },
+    { href: '/projects', label: 'Projects', icon: getAssetPath('/images/nav_bar_icons/projects.svg') },
+    { href: '/gallery', label: 'Gallery', icon: getAssetPath('/images/nav_bar_icons/gallery.svg') },
   ];
 
   const socialLinks = [
     {
       href: 'https://www.linkedin.com/in/jan-pastor-781767218/',
       label: 'LinkedIn',
-      icon: '/images/nav_bar_icons/linkedin.svg',
+      icon: getAssetPath('/images/nav_bar_icons/linkedin.svg'),
     },
   ];
 
@@ -35,7 +36,7 @@ export default function Navigation() {
           >
             <div className="w-8 h-8 flex items-center justify-center">
               <Image
-                src="/images/nav_bar_icons/arrow.svg"
+                src={getAssetPath('/images/nav_bar_icons/arrow.svg')}
                 alt="Logo"
                 width={24}
                 height={24}

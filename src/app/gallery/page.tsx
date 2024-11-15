@@ -4,6 +4,7 @@ import BubbleEffect from '@/components/BubbleEffect';
 import Navigation from '@/components/Navigation';
 import Image from 'next/image';
 import { useState } from 'react';
+import { getAssetPath } from '@/utils/assetPath';
 
 interface ImageModalProps {
     src: string;
@@ -39,45 +40,45 @@ export default function Gallery() {
     const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
 
     const mateRovImages = [
-        { src: '/images/mate_rov_team/teaching_brycen.jpg', alt: 'Supervising Brycen on soldering techniques' },
-        { src: '/images/mate_rov_team/teaching_Jasmine.jpg', alt: 'Teaching Jasmine how to solder' },
-        { src: '/images/mate_rov_team/with_Brycen.jpg', alt: 'Teaching Brycen how to solder' },
-        { src: '/images/mate_rov_team/me_soldering.jpg', alt: 'Jan soldering the tether together' },
-        { src: '/images/mate_rov_team/software_flowchart.jpg', alt: 'Drawing the software flowchart with Dana' },
-        { src: '/images/mate_rov_team/me_explain_motors1.jpg', alt: 'Explaining the thruster control system to team' },
-        { src: '/images/mate_rov_team/me_explain_motors3.jpeg', alt: 'Explaining the thruster control system again' },
-        { src: '/images/mate_rov_team/me_explain_motors_best.JPG', alt: 'Explaining the thruster control system yet again' },
-        { src: '/images/mate_rov_team/deck_crew_competition2.jpg', alt: 'Me and David on deck' },
-        { src: '/images/mate_rov_team/copilot_and_pilot.jpg', alt: 'Copilot: Jan Pastor (left), Pilot: Dana (right)' },
-        { src: '/images/mate_rov_robot/water_demo_with_dana.jpg', alt: 'Water demo test with (left) Jan and Dana (right)' },
-        { src: '/images/mate_rov_robot/gui1.jpg', alt: 'Graphical user interface close up view' },
-        { src: '/images/mate_rov_robot/gui2.jpg', alt: 'Graphical user interface close up view 2' },
-        { src: '/images/mate_rov_robot/hydra_water_demo1.jpg', alt: 'Water demo test 1' },
-        { src: '/images/mate_rov_robot/hydra_water_demo2.jpg', alt: 'Water demo test 2' },
-        { src: '/images/mate_rov_robot/hydra_waterdemo3.jpg', alt: 'Water demo test 3' },
-        { src: '/images/mate_rov_robot/hydra_waterdemo4.jpg', alt: 'Water demo test 4' },
-        { src: '/images/mate_rov_robot/hydra_water_test_with_supervisors.jpg', alt: 'Water demo test w/ supervisors' },
-        { src: '/images/mate_rov_robot/internal_electronics.jpg', alt: 'Interior electronics of ROV' },
-        { src: '/images/mate_rov_robot/hydra_pyramid_lift.jpg', alt: 'ROV lift task attempt of underwater plastic pyramid' }
+        { src: getAssetPath('/images/mate_rov_team/teaching_brycen.jpg'), alt: 'Supervising Brycen on soldering techniques' },
+        { src: getAssetPath('/images/mate_rov_team/teaching_Jasmine.jpg'), alt: 'Teaching Jasmine how to solder' },
+        { src: getAssetPath('/images/mate_rov_team/with_Brycen.jpg'), alt: 'Teaching Brycen how to solder' },
+        { src: getAssetPath('/images/mate_rov_team/me_soldering.jpg'), alt: 'Jan soldering the tether together' },
+        { src: getAssetPath('/images/mate_rov_team/software_flowchart.jpg'), alt: 'Drawing the software flowchart with Dana' },
+        { src: getAssetPath('/images/mate_rov_team/me_explain_motors1.jpg'), alt: 'Explaining the thruster control system to team' },
+        { src: getAssetPath('/images/mate_rov_team/me_explain_motors3.jpeg'), alt: 'Explaining the thruster control system again' },
+        { src: getAssetPath('/images/mate_rov_team/me_explain_motors_best.JPG'), alt: 'Explaining the thruster control system yet again' },
+        { src: getAssetPath('/images/mate_rov_team/deck_crew_competition2.jpg'), alt: 'Me and David on deck' },
+        { src: getAssetPath('/images/mate_rov_team/copilot_and_pilot.jpg'), alt: 'Copilot: Jan Pastor (left), Pilot: Dana (right)' },
+        { src: getAssetPath('/images/mate_rov_robot/water_demo_with_dana.jpg'), alt: 'Water demo test with (left) Jan and Dana (right)' },
+        { src: getAssetPath('/images/mate_rov_robot/gui1.jpg'), alt: 'Graphical user interface close up view' },
+        { src: getAssetPath('/images/mate_rov_robot/gui2.jpg'), alt: 'Graphical user interface close up view 2' },
+        { src: getAssetPath('/images/mate_rov_robot/hydra_water_demo1.jpg'), alt: 'Water demo test 1' },
+        { src: getAssetPath('/images/mate_rov_robot/hydra_water_demo2.jpg'), alt: 'Water demo test 2' },
+        { src: getAssetPath('/images/mate_rov_robot/hydra_waterdemo3.jpg'), alt: 'Water demo test 3' },
+        { src: getAssetPath('/images/mate_rov_robot/hydra_waterdemo4.jpg'), alt: 'Water demo test 4' },
+        { src: getAssetPath('/images/mate_rov_robot/hydra_water_test_with_supervisors.jpg'), alt: 'Water demo test w/ supervisors' },
+        { src: getAssetPath('/images/mate_rov_robot/internal_electronics.jpg'), alt: 'Interior electronics of ROV' },
+        { src: getAssetPath('/images/mate_rov_robot/hydra_pyramid_lift.jpg'), alt: 'ROV lift task attempt of underwater plastic pyramid' }
     ];
 
     const mateFloatsImages = [
-        { src: '/images/mate_floats_pics/day1_oceanography_janjasmine.jpg', alt: 'Oceanography 101 Lessons' },
-        { src: '/images/mate_floats_pics/day2_puget_sound.jpg', alt: 'Seattle, Washington Puget Sound Model' },
-        { src: '/images/mate_floats_pics/day3_building_coding_sensors.jpg', alt: 'Building and Coding the Seawater sensors' },
-        { src: '/images/mate_floats_pics/day3_floats_lab.jpg', alt: 'Inside of the FLOATs Engineering Lab' },
-        { src: '/images/mate_floats_pics/day3_sensor_array.jpg', alt: 'Complete Sensor Array Deployed' },
-        { src: '/images/mate_floats_pics/day4_labwork.jpg', alt: 'Chemistry Lab Work' },
-        { src: '/images/mate_floats_pics/day5_rachel_carson_group_photo.jpg', alt: 'Rachel Carson Group Photo' },
-        { src: '/images/mate_floats_pics/day5_microscope_microbes.jpg', alt: 'Observing Zooplankton under a microscope' },
-        { src: '/images/mate_floats_pics/day5_collecting_seawater_samples.jpg', alt: 'Collecting Seawater samples from Rosetta' },
-        { src: '/images/mate_floats_pics/UW_portside_sensor_deployment.jpg', alt: 'University of Washington, Seaport' },
-        { src: '/images/mate_floats_pics/sea_level_light_test_on_rachel_carson.jpg', alt: 'Me and Jasmine after sea rope test' },
-        { src: '/images/mate_floats_pics/zooplankton_net_seattle.jpg', alt: 'Zooplankton net recovered and rinsed' },
-        { src: '/images/mate_floats_pics/zooplankton_in_bottle.jpg', alt: 'Zooplankton collected into a bottle' },
-        { src: '/images/mate_floats_pics/zooplantkon_in_bottle2.jpg', alt: 'Zooplankton collected into a bottle close up view' },
-        { src: '/images/mate_floats_pics/ship_laboratory.jpg', alt: 'On ship laboratory experiment on collected seawater samples' },
-        { src: '/images/mate_floats_pics/final_group_photo.jpg', alt: 'Group photo of entire Summer Workshop faculty and cohort' }
+        { src: getAssetPath('/images/mate_floats_pics/day1_oceanography_janjasmine.jpg'), alt: 'Oceanography 101 Lessons' },
+        { src: getAssetPath('/images/mate_floats_pics/day2_puget_sound.jpg'), alt: 'Seattle, Washington Puget Sound Model' },
+        { src: getAssetPath('/images/mate_floats_pics/day3_building_coding_sensors.jpg'), alt: 'Building and Coding the Seawater sensors' },
+        { src: getAssetPath('/images/mate_floats_pics/day3_floats_lab.jpg'), alt: 'Inside of the FLOATs Engineering Lab' },
+        { src: getAssetPath('/images/mate_floats_pics/day3_sensor_array.jpg'), alt: 'Complete Sensor Array Deployed' },
+        { src: getAssetPath('/images/mate_floats_pics/day4_labwork.jpg'), alt: 'Chemistry Lab Work' },
+        { src: getAssetPath('/images/mate_floats_pics/day5_rachel_carson_group_photo.jpg'), alt: 'Rachel Carson Group Photo' },
+        { src: getAssetPath('/images/mate_floats_pics/day5_microscope_microbes.jpg'), alt: 'Observing Zooplankton under a microscope' },
+        { src: getAssetPath('/images/mate_floats_pics/day5_collecting_seawater_samples.jpg'), alt: 'Collecting Seawater samples from Rosetta' },
+        { src: getAssetPath('/images/mate_floats_pics/UW_portside_sensor_deployment.jpg'), alt: 'University of Washington, Seaport' },
+        { src: getAssetPath('/images/mate_floats_pics/sea_level_light_test_on_rachel_carson.jpg'), alt: 'Me and Jasmine after sea rope test' },
+        { src: getAssetPath('/images/mate_floats_pics/zooplankton_net_seattle.jpg'), alt: 'Zooplankton net recovered and rinsed' },
+        { src: getAssetPath('/images/mate_floats_pics/zooplankton_in_bottle.jpg'), alt: 'Zooplankton collected into a bottle' },
+        { src: getAssetPath('/images/mate_floats_pics/zooplantkon_in_bottle2.jpg'), alt: 'Zooplankton collected into a bottle close up view' },
+        { src: getAssetPath('/images/mate_floats_pics/ship_laboratory.jpg'), alt: 'On ship laboratory experiment on collected seawater samples' },
+        { src: getAssetPath('/images/mate_floats_pics/final_group_photo.jpg'), alt: 'Group photo of entire Summer Workshop faculty and cohort' }
     ];
 
     return (

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import ImageModal from '@/components/ImageModal';
+import { getAssetPath } from '@/utils/assetPath';
 import '../animations/hue-shift.css';
 
 export default function Projects() {
@@ -16,22 +17,22 @@ export default function Projects() {
       technologies: ['Python', 'Selenium', 'Ollama', 'Streamlit'],
       images: [
         {
-          src: '/images/project_images/ai_scraper1.png',
+          src: getAssetPath('/images/project_images/ai_scraper1.png'),
           alt: 'AI Web Scraper Interface'
         },
         {
-          src: '/images/project_images/ai_scraper2.png',
+          src: getAssetPath('/images/project_images/ai_scraper2.png'),
           alt: 'AI Web Scraper Interface'
         },
         {
-          src: '/images/project_images/txt_batch1_result.png',
+          src: getAssetPath('/images/project_images/txt_batch1_result.png'),
           alt: 'AI Web Scraper Results'
         }
       ],
       video: {
-        src: '/videos/AI_ScraperDemo.mp4',
+        src: getAssetPath('/videos/AI_ScraperDemo.mp4'),
         alt: 'AI Web Scraper Demo',
-        thumbnail: '/images/project_images/ai_scraper1.png'
+        thumbnail: getAssetPath('/images/project_images/ai_scraper1.png')
       },
       link: 'https://github.com/JanPastor/AI-Web-Scraper'
     }
