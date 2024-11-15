@@ -28,27 +28,5 @@ A modern, responsive portfolio website built with Next.js and Tailwind CSS, show
 - Experience: Professional timeline and achievements
 - Gallery: Visual portfolio of engineering work
 
-## Getting Started
-
-1. Clone the repository:
-```bash
-git clone https://github.com/JanPastor/new-portfolio.git
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Run the development server:
-```bash
-npm run dev
-```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
-
 ## Live Site
 Visit the live portfolio at: [https://janpastor.github.io/new-portfolio/](https://janpastor.github.io/new-portfolio/)
-
-## Contact
-Feel free to reach out for collaborations or questions!
